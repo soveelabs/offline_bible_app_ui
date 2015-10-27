@@ -1,0 +1,13 @@
+app:
+  build: .
+  command: nodemon server.js
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - ':3000'
+  environment:
+    AUTH_HOST: https://staging-auth.sovee.com
+  links:
+    - redis
+redis:
+  image: redis:latest
